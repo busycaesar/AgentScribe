@@ -1,4 +1,4 @@
-const chalk = require("chalk");
+const chalk = require("chalk").default;
 
 const logger = {
   success: (message) => console.log(chalk.green("✓ " + message)),

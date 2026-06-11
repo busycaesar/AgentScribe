@@ -1,4 +1,4 @@
-const inquirer = require("inquirer");
+const inquirer = require("inquirer").default;
 const fs = require("fs-extra");
 const path = require("path");
 const os = require("os");
