@@ -7,7 +7,7 @@
 A CLI tool to create AI skills (markdown instruction files) once and sync them across multiple AI coding tools — write once, use everywhere. Maintains a central store at `~/.skills/` and syncs skills to each supported tool's folder.
 
 ## Tech Stack
-![Image Alt](https://skillicons.dev/icons?i=js,ts,nodejs)
+![Image Alt](https://skillicons.dev/icons?i=nodejs)
 
 ## Features
 
