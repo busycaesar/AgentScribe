@@ -43,3 +43,7 @@ node bin/agentscribe.js <command>
 
 ## Author
 [Dev J. Shah](https://github.com/busycaesar)
+
+## Co-Authors
+- [Cursor](https://github.com/cursor)
+- [Claude Sonnet 4.6](https://github.com/anthropics)
