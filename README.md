@@ -1,4 +1,4 @@
-# agentscribe
+# AgentScribe
 
 ## Description
 
@@ -6,9 +6,6 @@ A CLI tool to create AI skills (markdown instruction files) once and sync them a
 
 ## Tech Stack
 ![Image Alt](https://skillicons.dev/icons?i=js,ts,nodejs)
-
-- Node.js (JavaScript, CommonJS)
-- Dependencies: `commander`, `inquirer`, `fs-extra`, `chalk`
 
 ## Features
 
