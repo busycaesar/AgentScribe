@@ -1,5 +1,7 @@
 # AgentScribe
 
+<img width="1031" height="224" alt="agentscribe-poster" src="https://github.com/user-attachments/assets/280166d2-2da0-48a6-8540-6fa7925fd4de" />
+
 ## Description
 
 A CLI tool to create AI skills (markdown instruction files) once and sync them across multiple AI coding tools — write once, use everywhere. Maintains a central store at `~/.skills/` and syncs skills to each supported tool's folder.
