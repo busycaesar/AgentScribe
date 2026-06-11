@@ -1,21 +1,46 @@
-<!-- Remove the following content when using this template for create repo for project! -->
-This repository serves as a template for all my future project repositories. It contains the common structure, configurations, and files that I use across my projects. The purpose of this repository template is to maintain consistency and standardization across my projects. By using this template, I ensure that all my repositories follow a similar structure and setup, making it easier to manage and maintain them.
-
-While this template is primarily for personal use, contributions and suggestions for improvements are always welcome. If you have ideas for enhancing the template or making it more useful, feel free to submit a pull request or open an issue.
-<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXS -->
-
-# Project Title
+# agentscribe
 
 ## Description
 
-## Tech Stack
-![Image Alt](https://skillicons.dev/icons?i=js,ts)
+A CLI tool to create AI skills (markdown instruction files) once and sync them across multiple AI coding tools — write once, use everywhere. Maintains a central store at `~/.skills/` and syncs skills to each supported tool's folder.
 
-## How it looks?
+## Tech Stack
+![Image Alt](https://skillicons.dev/icons?i=js,ts,nodejs)
+
+- Node.js (JavaScript, CommonJS)
+- Dependencies: `commander`, `inquirer`, `fs-extra`, `chalk`
 
 ## Features
 
+- Create and manage reusable AI skill files from a central store
+- Sync skills across multiple AI coding tools with a single command
+- Supports Claude, Cursor, and Gemini out of the box
+
 ## How to run the project?
+
+```bash
+npm install
+node bin/agentscribe.js <command>
+```
+
+### Commands
+
+| Command | Description |
+|---|---|
+| `new` | Create a new skill |
+| `list` | List all saved skills |
+| `sync [--tool <name>]` | Sync skills to one or all tools |
+| `edit <name>` | Edit an existing skill |
+| `delete <name>` | Delete a skill |
+| `show <name>` | Display a skill's content |
+
+### Sync Targets
+
+| Tool | Path |
+|---|---|
+| Claude | `.claude/commands/<name>.md` |
+| Cursor | `.cursor/rules/<name>.md` |
+| Gemini | `.gemini/<name>.md` |
 
 ## Author
 [Dev J. Shah](https://github.com/busycaesar)
