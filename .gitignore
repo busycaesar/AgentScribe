@@ -1,5 +1,7 @@
 .cursor/
 CLAUDE.md
+.claude/
+.gemini/
 
 # Logs
 logs
