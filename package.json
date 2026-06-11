@@ -1,18 +1,41 @@
 {
   "name": "agentscribe",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Create AI skills once and sync them across your AI coding tools (Claude, Cursor, Gemini).",
   "bin": {
     "agentscribe": "bin/agentscribe.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "ai",
+    "skills",
+    "claude",
+    "cursor",
+    "gemini",
+    "prompts"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/busycaesar/AgentScribe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/busycaesar/AgentScribe/issues"
+  },
+  "homepage": "https://github.com/busycaesar/AgentScribe#readme",
   "dependencies": {
     "chalk": "^5.6.2",
     "commander": "^15.0.0",
