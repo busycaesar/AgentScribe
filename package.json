@@ -1,6 +1,6 @@
 {
   "name": "agentscribe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create AI skills once and sync them across your AI coding tools (Claude, Cursor, Gemini).",
   "bin": {
     "agentscribe": "bin/agentscribe.js"
