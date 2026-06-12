@@ -25,6 +25,12 @@ A CLI tool to create AI skills (markdown instruction files) once and sync them a
 npm install -g agentscribe
 ```
 
+Or run without installing:
+
+```bash
+npx agentscribe <command>
+```
+
 ## Usage
 
 ```bash
@@ -37,10 +43,11 @@ agentscribe <command>
 |---|---|
 | `new` | Create a new skill |
 | `list` | List all saved skills |
-| `sync [--tool <name>]` | Sync skills to one or all tools |
-| `edit <name>` | Edit an existing skill |
-| `delete <name>` | Delete a skill |
+| `sync` | Sync all skills to all supported tools |
+| `sync --tool <name>` | Sync all skills to a single tool |
 | `show <name>` | Display a skill's content |
+| `edit <name>` | Edit an existing skill in `$EDITOR` |
+| `delete <name>` | Delete a skill |
 
 ### Sync Targets
 
