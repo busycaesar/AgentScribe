@@ -25,8 +25,7 @@ program.command("list").description("List all skills").action(list);
 program
   .command("sync")
   .description("Sync skills to supported tools")
-  .option("--tool <name>", "Sync to a single tool only")
-  .action((options) => sync(options.tool));
+  .action(sync);
 
 program
   .command("show")

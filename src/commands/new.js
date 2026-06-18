@@ -5,6 +5,7 @@ const os = require("os");
 const { execSync } = require("child_process");
 const registry = require("../lib/registry");
 const logger = require("../utils/logger");
+const sync = require("./sync");
 
 const SKILLS_DIR = path.join(os.homedir(), ".agentscribe", "skills");
 
@@ -68,6 +69,8 @@ async function newSkill() {
   // Save to registry after editor closes
   await registry.addSkill({ name, description, filePath });
   logger.success(`Skill "${name}" saved successfully.`);
+
+  await sync();
 }
 
 module.exports = newSkill;
