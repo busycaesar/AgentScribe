@@ -1,5 +1,3 @@
-const fs = require("fs-extra");
-const path = require("path");
 const tools = require("../lib/tools");
 const logger = require("../utils/logger");
 const { listSkills, copySkills } = require("../lib/store");

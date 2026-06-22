@@ -1,4 +1,3 @@
-const registry = require("../lib/registry");
 const logger = require("../utils/logger");
 
 async function list() {

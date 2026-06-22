@@ -1,4 +1,3 @@
-const registry = require("../lib/registry");
 const store = require("../lib/store");
 const logger = require("../utils/logger");
 
@@ -6,12 +5,16 @@ async function show(name) {
   const skill = await registry.getSkill(name);
 
   if (!skill) {
-    logger.error(`No skill named "${name}". Run \`agentscribe list\` to see all skills.`);
+    logger.error(
+      `No skill named "${name}". Run \`agentscribe list\` to see all skills.`,
+    );
     process.exit(1);
   }
 
   if (!(await store.skillFileExists(name))) {
-    logger.error(`Source file missing for "${name}": ${store.getSkillPath(name)}`);
+    logger.error(
+      `Source file missing for "${name}": ${store.getSkillPath(name)}`,
+    );
     process.exit(1);
   }
 

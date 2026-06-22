@@ -1,16 +1,10 @@
-const inquirer = require("inquirer").default;
-const fs = require("fs-extra");
-const path = require("path");
-const os = require("os");
 const { execSync } = require("child_process");
 const logger = require("../utils/logger");
 const sync = require("./sync");
 const { skillFileExists, createSkillFile } = require("../lib/store");
 
-const SKILLS_DIR = path.join(os.homedir(), ".agentscribe", "skills");
-
 async function newSkill(name, local) {
-  let localDirectory = null;
+  let localDirectory = undefined;
 
   if (local) {
     localDirectory = process.cwd();
@@ -38,7 +32,7 @@ async function newSkill(name, local) {
   } finally {
     logger.success(`Skill "${name}" saved successfully.`);
 
-    // await sync();
+    await sync(local);
   }
 }
 

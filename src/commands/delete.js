@@ -1,4 +1,3 @@
-const registry = require("../lib/registry");
 const store = require("../lib/store");
 const prompt = require("../utils/prompt");
 const logger = require("../utils/logger");
@@ -7,7 +6,9 @@ async function deleteSkill(name) {
   const skill = await registry.getSkill(name);
 
   if (!skill) {
-    logger.error(`No skill named "${name}". Run \`agentscribe list\` to see all skills.`);
+    logger.error(
+      `No skill named "${name}". Run \`agentscribe list\` to see all skills.`,
+    );
     process.exit(1);
   }
 
