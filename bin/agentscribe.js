@@ -18,7 +18,12 @@ program
   )
   .version(pkg.version);
 
-program.command("new").description("Create a new skill").action(newSkill);
+program
+  .command("new")
+  .description("Create a new skill")
+  .argument("<name>", "Skill name")
+  .option("--local", "Add skill locally to the project")
+  .action((name, options) => newSkill(name, options.local));
 
 program.command("list").description("List all skills").action(list);
 

@@ -1,17 +1,30 @@
 const fs = require("fs-extra");
 const path = require("path");
 const os = require("os");
+const { TOOL_HOME, SKILL_HOME } = require("./constants");
 
-const SKILLS_DIR = path.join(os.homedir(), ".skills", "skills");
-
-// Resolve the absolute path of a skill's markdown file.
-function getSkillPath(name) {
-  return path.join(SKILLS_DIR, `${name}.md`);
-}
+const SKILLS_DIR = (root = os.homedir()) =>
+  path.join(root, TOOL_HOME, SKILL_HOME);
 
 // Check whether a skill's markdown file exists on disk.
-async function skillFileExists(name) {
-  return fs.pathExists(getSkillPath(name));
+async function skillFileExists(name, local) {
+  return fs.pathExists(getSkillPath(name, local));
+}
+
+// Resolve the absolute path of a skill's markdown file.
+function getSkillPath(name, local) {
+  return path.join(SKILLS_DIR(local), `${name}.md`);
+}
+
+async function createSkillFile(name, local) {
+  const directory = SKILLS_DIR(local);
+  await fs.ensureDir(directory);
+
+  const filePath = path.join(directory, `${name}.md`);
+
+  await fs.createFile(filePath);
+
+  return filePath;
 }
 
 // Read the contents of a skill's markdown file.
@@ -42,4 +55,5 @@ module.exports = {
   readSkill,
   writeSkill,
   deleteSkillFile,
+  createSkillFile,
 };

@@ -2,6 +2,7 @@
 CLAUDE.md
 .claude/
 .gemini/
+.agentscribe
 
 # Logs
 logs
