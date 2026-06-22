@@ -1,13 +1,10 @@
 const tools = require("../lib/tools");
 const logger = require("../utils/logger");
 const { listSkills, copySkills } = require("../lib/store");
+const { resolveLocalDirectory } = require("../utils/paths");
 
 async function sync(local) {
-  let localDirectory = undefined;
-
-  if (local) {
-    localDirectory = process.cwd();
-  }
+  const localDirectory = resolveLocalDirectory(local);
 
   const skills = await listSkills(localDirectory);
 

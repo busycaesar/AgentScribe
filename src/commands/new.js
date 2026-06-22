@@ -2,13 +2,10 @@ const { execSync } = require("child_process");
 const logger = require("../utils/logger");
 const sync = require("./sync");
 const { skillFileExists, createSkillFile } = require("../lib/store");
+const { resolveLocalDirectory } = require("../utils/paths");
 
 async function newSkill(name, local) {
-  let localDirectory = undefined;
-
-  if (local) {
-    localDirectory = process.cwd();
-  }
+  const localDirectory = resolveLocalDirectory(local);
 
   // Check if skill already exists
   if (await skillFileExists(name, localDirectory)) {
