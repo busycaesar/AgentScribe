@@ -30,7 +30,8 @@ program.command("list").description("List all skills").action(list);
 program
   .command("sync")
   .description("Sync skills to supported tools")
-  .action(sync);
+  .option("--local", "Sync the local skills")
+  .action((options) => sync(options.local));
 
 program
   .command("show")

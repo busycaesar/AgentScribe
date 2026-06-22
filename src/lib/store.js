@@ -1,9 +1,8 @@
 const fs = require("fs-extra");
 const path = require("path");
-const os = require("os");
-const { TOOL_HOME, SKILL_HOME } = require("./constants");
+const { TOOL_HOME, SKILL_HOME, ROOT_DIRECTORY } = require("./constants");
 
-const SKILLS_DIR = (root = os.homedir()) =>
+const SKILLS_DIR = (root = ROOT_DIRECTORY) =>
   path.join(root, TOOL_HOME, SKILL_HOME);
 
 // Check whether a skill's markdown file exists on disk.
@@ -25,6 +24,39 @@ async function createSkillFile(name, local) {
   await fs.createFile(filePath);
 
   return filePath;
+}
+
+async function listSkills(local) {
+  const directory = SKILLS_DIR(local);
+
+  const pathExists = await fs.pathExists(directory);
+
+  if (!pathExists) return [];
+
+  const skills = await fs.readdir(directory);
+
+  if (skills.length <= 0) return [];
+
+  return skills
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => ({
+      name: path.basename(file, ".md"),
+      filePath: path.join(directory, file),
+    }));
+}
+
+async function copySkills(skills, targetPath, local) {
+  const directory = SKILLS_DIR(local);
+
+  const targetDirectory = path.join(directory, targetPath);
+
+  await fs.ensureDir(targetDirectory);
+
+  for (const skill of skills) {
+    const destination = path.join(targetDirectory, `${skill.name}.md`);
+
+    await fs.copy(skill.filePath, destination);
+  }
 }
 
 // Read the contents of a skill's markdown file.
@@ -56,4 +88,6 @@ module.exports = {
   writeSkill,
   deleteSkillFile,
   createSkillFile,
+  listSkills,
+  copySkills,
 };

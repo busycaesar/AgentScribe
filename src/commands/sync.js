@@ -1,35 +1,25 @@
 const fs = require("fs-extra");
 const path = require("path");
-const registry = require("../lib/registry");
 const tools = require("../lib/tools");
 const logger = require("../utils/logger");
+const { listSkills, copySkills } = require("../lib/store");
 
-async function sync() {
-  const skills = await registry.listSkills();
+async function sync(local) {
+  let localDirectory = undefined;
 
-  if (skills.length === 0) {
-    logger.warn("No skills to sync. Create one with `agentscribe new`.");
-    return;
+  if (local) {
+    localDirectory = process.cwd();
   }
 
-  for (const [toolName, targetDir] of Object.entries(tools)) {
-    await fs.ensureDir(targetDir);
+  const skills = await listSkills(localDirectory);
 
-    let count = 0;
-    for (const skill of skills) {
-      if (!(await fs.pathExists(skill.filePath))) {
-        logger.warn(
-          `Skipping "${skill.name}" — source file not found: ${skill.filePath}`,
-        );
-        continue;
-      }
-      const dest = path.join(targetDir, `${skill.name}.md`);
-      await fs.copy(skill.filePath, dest);
-      count++;
-    }
+  for (const [toolName, targetPath] of Object.entries(tools)) {
+    const count = skills.length;
+
+    await copySkills(skills, targetPath, localDirectory);
 
     logger.success(
-      `Synced ${count} skill${count === 1 ? "" : "s"} to ${toolName} (${targetDir}).`,
+      `Synced ${count} skill${count === 1 ? "" : "s"} to ${toolName} (${targetPath}).`,
     );
   }
 }
