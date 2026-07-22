@@ -1,6 +1,13 @@
 # AgentScribe
 
-<img width="1031" height="224" alt="agentscribe-poster" src="https://github.com/user-attachments/assets/280166d2-2da0-48a6-8540-6fa7925fd4de" />
+<pre>
+ █████╗  ██████╗ ███████╗███╗   ██╗████████╗███████╗ ██████╗██████╗ ██╗██████╗ ███████╗
+██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗██╔════╝
+███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║   ███████╗██║     ██████╔╝██║██████╔╝█████╗  
+██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║██║     ██╔══██╗██║██╔══██╗██╔══╝  
+██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║   ███████║╚██████╗██║  ██║██║██████╔╝███████╗
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═════╝ ╚══════╝
+</pre>
 
 [![npm version](https://img.shields.io/npm/v/agentscribe)](https://www.npmjs.com/package/agentscribe)
 [![npm downloads](https://img.shields.io/npm/dm/agentscribe)](https://www.npmjs.com/package/agentscribe)
